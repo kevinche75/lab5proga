@@ -3,7 +3,7 @@
   "politeness": "RUDE",
   "condition": "NORMAL",
   "cap": {
-  	"nameOfUser": "Алисbot"
+  	"nameOfUser": "Алcobot"
 	"fullness": 123
   },
   "name": "Алисbot",
