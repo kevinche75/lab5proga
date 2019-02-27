@@ -14,7 +14,7 @@
   "condition": "NORMAL",
   "cap": {
   	"nameOfUser": "Алисt"
-	"fullness": 12
+	"fullness": 112312
   },
   "name": "Алисt",
   "x": 10
