@@ -49,7 +49,7 @@ public InteractiveMachine(){
             case "нет":
                 break;
             default:
-                System.out.println("===\nВы шо ебобо, просили \"да\" или \"нет\"\n===");//FIXME: uncorrect ebotnya
+                System.out.println("===\nВведите \"да\" или \"нет\"\n===");
                 beginWork();
         }
     }

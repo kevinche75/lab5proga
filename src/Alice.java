@@ -128,17 +128,20 @@ public int getfullness(){
         if (this == obj) return true;
         if (obj == null || getClass() != obj.getClass()) return false;
         Alice alice = (Alice) obj;
-        return getPoliteness() == alice.getPoliteness() && getCondition() == alice.getCondition();
+        return getPoliteness() == alice.getPoliteness() && getCondition() == alice.getCondition() && getName().equals(alice.getName()) && getfullness() == alice.getfullness();
     }
+
+
+
 
     @Override
     public int hashCode() {
-        return Objects.hash(getPoliteness(), getCondition());
+        return Objects.hash(getPoliteness(), getCondition(),getfullness(),getName(),getLocation());
     }
 
     @Override
     public String toString() {
-        return "\nКласс: Alice\n" + "Имя: " + getName() + "\nВежливость: politeness = " + politeness + '\n' + "Состояние: condition = " + condition + "\nhashcode: " + Integer.toHexString(hashCode())+ "cap: \nnameOfUser: " +getName()+"\n\tfullness :"+ cap.getFullness()+'\n';
+        return "\nКласс: Alice\n" + "Имя: " + getName() + "\nВежливость: politeness = " + politeness + '\n' + "Состояние: condition = " + condition + "\nHashcode: " + Integer.toHexString(hashCode())+ "\nКоордината: "+getLocation()+"\ncap: \n\tNameOfUser: " +getName()+"\n\tFullness :"+ cap.getFullness()+'\n';
     }
 
     @Override
@@ -168,22 +171,23 @@ public int getfullness(){
 
     @Override
     public int compareTo(Alice alice) {
-        int value1 = this.getLocation() * 10;
-        int value2 = alice.getLocation() * 10;
-        if (this.getCondition() == Condition.NORMAL) {
-            value1 += 1;
-        }
-        if (alice.getCondition() == Condition.NORMAL) {
-            value2 += 1;
-        }
-        if (this.getPoliteness() == Politeness.POLITE) {
-            value1 += 5;
-        }
-        if (alice.getPoliteness() == Politeness.POLITE) {
-            value2 += 5;
-        }
-        if (value1 > value2) return 1;
-        if (value2 > value1) return -1;
-        return this.getName().compareTo(alice.getName());
+//        int value1 = this.getLocation() * 1000 + this.getfullness();
+//        int value2 = alice.getLocation() * 1000 + alice.getfullness();
+//        if (this.getCondition() == Condition.NORMAL) {
+//            value1 += 1;
+//        }
+//        if (alice.getCondition() == Condition.NORMAL) {
+//            value2 += 1;
+//        }
+//        if (this.getPoliteness() == Politeness.POLITE) {
+//            value1 += 5;
+//        }
+//        if (alice.getPoliteness() == Politeness.POLITE) {
+//            value2 += 5;
+//        }
+//        if (value1 > value2) return 1;
+//        if (value2 > value1) return -1;
+//        return this.getName().compareTo(alice.getName());
+        return getLocation()-alice.getLocation();
     }
 }

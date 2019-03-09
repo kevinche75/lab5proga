@@ -3,21 +3,11 @@
   "politeness": "RUDE",
   "condition": "NORMAL",
   "cap": {
-  	"nameOfUser": "Алcobot"
-	"fullness": 123
-  },
-  "name": "Алисbot",
-  "x": 10
-  },
-{
-  "politeness": "RUDE",
-  "condition": "NORMAL",
-  "cap": {
   	"nameOfUser": "Алисt"
-	"fullness": 112312
+	"fullness": 122
   },
   "name": "Алисt",
-  "x": 10
+  "x": 12
   },
 {
   "politeness": "RUDE",
@@ -27,6 +17,17 @@
 	"fullness": 122
   },
   "name": "Алисt",
-  "x": 10
+  "x": 13
   }
+  ,
+  {
+    "politeness": "POLITE",
+    "condition": "NORMAL",
+    "cap": {
+    	"nameOfUser": "Иван"
+  	"fullness": 122
+    },
+    "name": "Иван",
+    "x": 112
+    }
 ]

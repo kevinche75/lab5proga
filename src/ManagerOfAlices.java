@@ -21,6 +21,7 @@ public class ManagerOfAlices {
     private LinkedList<Alice> linkedalices;
     private Date date = null;
     private File sourcefile = null;
+    private boolean reverse = true;
 
     protected ManagerOfAlices(File rawfile){
 
@@ -96,6 +97,7 @@ public class ManagerOfAlices {
 
     protected void saveAndExit() {
             if(sourcefile==null||!sourcefile.canWrite()){
+                System.out.println("===\nФайл не существует или в него невозможно записать\n===");
                 String newfilename = "fileforcollectionwithcreativename.txt";
                 String workdirectory = System.getProperty("user.dir");
                 String separator = System.getProperty("file.separator");
@@ -121,7 +123,14 @@ public class ManagerOfAlices {
     /**This method makes reverse.
      */
     protected void reorder(){
-        linkedalices.sort(Collections.reverseOrder());
+        if(reverse){
+            linkedalices.sort(Comparator.naturalOrder());
+            Collections.reverse(linkedalices);
+            reverse = false;
+        } else {
+            linkedalices.sort(Comparator.naturalOrder());
+            reverse = true;
+        }
         System.out.println("===\nКоллекция отсортирована в обратном порядке\n===");
     }
 /**This method shows information about collection.
@@ -153,7 +162,7 @@ public class ManagerOfAlices {
         while(iterator.hasNext()){
         Alice element = iterator.next();
         if(comparator.compare(primerforevery,element)<0) {
-            linkedalices.remove(element);
+            iterator.remove();
             count++;
             }
         }
@@ -169,7 +178,7 @@ public class ManagerOfAlices {
         while(iterator.hasNext()){
             Alice element = iterator.next();
             if(comparator.compare(aliceforcompare,element)==0) {
-                linkedalices.remove(element);
+                iterator.remove();
                 count++;
             }
         }
@@ -178,10 +187,26 @@ public class ManagerOfAlices {
     /**This method removes alice in collection equal to parametr.
      * @param aliceforremove - Alice.class, which will be compared with alices in Collection.
      */
-    protected void remove(Alice aliceforremove){
-        if(linkedalices.remove(aliceforremove)) System.out.println("===\nЭлемент удалён\n===");
+    protected void remove(Alice aliceforremove) {
+        if (linkedalices.remove(aliceforremove)) System.out.println("===\nЭлемент удалён\n===");
         else
-            System.out.println("===\nТакого элемента и не было\n===");;
+            System.out.println("===\nТакого элемента и не было\n===");
     }
+//        Iterator<Alice> iterator = linkedalices.iterator();
+//        Comparator<Alice> comparator = (alice1, alice2) -> alice1.compareTo(alice2);
+//        int count = 0;
+//        boolean flag = false;
+//        while(iterator.hasNext()){
+//            Alice element = iterator.next();
+//            if(comparator.compare(aliceforremove,element)==0) {
+//                iterator.remove();
+//                flag = true;
+//               break;
+//            }
+//        }
+//        if(flag) System.out.println("===\nЭлемент удалён\n===");
+//      else
+//            System.out.println("===\nТакого элемента и не было\n===");;
+//  }
 }
 
