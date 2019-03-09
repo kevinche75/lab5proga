@@ -19,7 +19,7 @@ public InteractiveMachine(){
         if (manager.isWorkable()) {
             beginWork();
             if (needWork) {
-                get_commands();
+                help();
                 System.out.println("===\nВведите команду\n===");
                 scanAndExecuteCommands();
             }
@@ -54,8 +54,8 @@ public InteractiveMachine(){
         }
     }
 
-    private void get_commands(){
-        System.out.println("===\nСписок доступных команд:\n1. get_commands: показать доступные команды\n" +
+    private void help(){
+        System.out.println("===\nСписок доступных команд:\n1. help: показать доступные команды\n" +
                 "2. reorder: отсортировать коллекцию в порядке, обратном нынешнему\n" +
                 "3. add {element}: добавить новый элемент в коллекцию, элемент должен быть введён в формате json\n" +
                 "4. remove_greater {element}: удалить из коллекции все элементы, превышающие заданный, элемент должен быть введён в формате json\n" +
@@ -79,16 +79,16 @@ public InteractiveMachine(){
             while(needWork) {
                 String commands[] = scaner.nextLine().split(" ", 2);
                 switch (commands[0]) {
-                    case "get_commands":
+                    case "help":
                         if (commands.length > 1) {
                             if (commands[1].matches(" +") | commands[1].matches("")) {
                                 System.out.println("===\nПробелы можно было и не добавлять\n===");
-                                get_commands();
+                                help();
                             } else {
                                 System.out.println("===\nДанная команда не должна содержать аргументов\n===");
                             }
                         } else {
-                            get_commands();
+                            help();
                         }
                         break;
                     case "reorder":

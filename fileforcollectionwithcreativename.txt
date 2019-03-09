@@ -18,16 +18,25 @@
   },
   "name": "Алисt",
   "x": 13
+  },
+{
+  "politeness": "POLITE",
+  "condition": "NORMAL",
+  "cap": {
+  	"nameOfUser": "Иван"
+	"fullness": 122
+  },
+  "name": "Иван",
+  "x": 112
+  },
+{
+  "politeness": "POLITE",
+  "condition": "NORMAL",
+  "cap": {
+  	"nameOfUser": "Иван"
+	"fullness": 122
+  },
+  "name": "Иван",
+  "x": 112
   }
-  ,
-  {
-    "politeness": "POLITE",
-    "condition": "NORMAL",
-    "cap": {
-    	"nameOfUser": "Иван"
-  	"fullness": 122
-    },
-    "name": "Иван",
-    "x": 112
-    }
 ]
