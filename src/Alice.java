@@ -171,23 +171,6 @@ public int getfullness(){
 
     @Override
     public int compareTo(Alice alice) {
-//        int value1 = this.getLocation() * 1000 + this.getfullness();
-//        int value2 = alice.getLocation() * 1000 + alice.getfullness();
-//        if (this.getCondition() == Condition.NORMAL) {
-//            value1 += 1;
-//        }
-//        if (alice.getCondition() == Condition.NORMAL) {
-//            value2 += 1;
-//        }
-//        if (this.getPoliteness() == Politeness.POLITE) {
-//            value1 += 5;
-//        }
-//        if (alice.getPoliteness() == Politeness.POLITE) {
-//            value2 += 5;
-//        }
-//        if (value1 > value2) return 1;
-//        if (value2 > value1) return -1;
-//        return this.getName().compareTo(alice.getName());
         return getLocation()-alice.getLocation();
     }
 }

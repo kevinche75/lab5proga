@@ -71,7 +71,7 @@ public class ManagerOfAlices {
     protected void jsonToLinkedList(String rawJson){
         UrodJsonParser gson = new UrodJsonParser();
         linkedalices = gson.getArraysofAliceObjects(rawJson);
-        linkedalices.sort((alice1, alice2) -> alice1.compareTo(alice2));
+        linkedalices.sort(Comparator.naturalOrder());
                 System.out.println("===\nЭлементов было добавлено: "+linkedalices.size()+" \n===");
                 date = new Date();
                 workable = true;
@@ -86,7 +86,7 @@ public class ManagerOfAlices {
                     System.out.println("===\nКоллекция сохранена в файле: " + sourcefile.getAbsolutePath() + "\n===");
                 }
             } else {
-                printer.write("");
+                printer.write("[]");
             }
             System.out.println("===\nРабота с коллекцией завершена\n===");
         } catch (FileNotFoundException e) {
@@ -98,7 +98,7 @@ public class ManagerOfAlices {
     protected void saveAndExit() {
             if(sourcefile==null||!sourcefile.canWrite()){
                 System.out.println("===\nФайл не существует или в него невозможно записать\n===");
-                String newfilename = "fileforcollectionwithcreativename.txt";
+                String newfilename = "fileforsaving.txt";
                 String workdirectory = System.getProperty("user.dir");
                 String separator = System.getProperty("file.separator");
                 sourcefile = new File(workdirectory + separator + newfilename);
@@ -157,7 +157,7 @@ public class ManagerOfAlices {
      */
     protected void remove_greater(Alice primerforevery){
         Iterator<Alice> iterator = linkedalices.iterator();
-        Comparator<Alice> comparator = (alice1, alice2) -> alice1.compareTo(alice2);
+        Comparator<Alice> comparator = Comparator.naturalOrder();
         int count = 0;
         while(iterator.hasNext()){
         Alice element = iterator.next();
@@ -173,7 +173,7 @@ public class ManagerOfAlices {
      */
     protected void remove_all(Alice aliceforcompare){
         Iterator<Alice> iterator = linkedalices.iterator();
-        Comparator<Alice> comparator = (alice1, alice2) -> alice1.compareTo(alice2);
+        Comparator<Alice> comparator = Comparator.naturalOrder();
         int count = 0;
         while(iterator.hasNext()){
             Alice element = iterator.next();
@@ -192,21 +192,5 @@ public class ManagerOfAlices {
         else
             System.out.println("===\nТакого элемента и не было\n===");
     }
-//        Iterator<Alice> iterator = linkedalices.iterator();
-//        Comparator<Alice> comparator = (alice1, alice2) -> alice1.compareTo(alice2);
-//        int count = 0;
-//        boolean flag = false;
-//        while(iterator.hasNext()){
-//            Alice element = iterator.next();
-//            if(comparator.compare(aliceforremove,element)==0) {
-//                iterator.remove();
-//                flag = true;
-//               break;
-//            }
-//        }
-//        if(flag) System.out.println("===\nЭлемент удалён\n===");
-//      else
-//            System.out.println("===\nТакого элемента и не было\n===");;
-//  }
 }
 
